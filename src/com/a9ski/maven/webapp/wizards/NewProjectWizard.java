@@ -57,7 +57,7 @@ public class NewProjectWizard extends Wizard implements INewWizard {
 	}; 
 	
 	private IStructuredSelection selection;
-	private IWorkbench workbench;
+
 	
 	public NewProjectWizard() {
 		super();
@@ -65,8 +65,7 @@ public class NewProjectWizard extends Wizard implements INewWizard {
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.selection = selection;
-		this.workbench = workbench;
+		this.selection = selection;		
 	}
 	
 	@Override
