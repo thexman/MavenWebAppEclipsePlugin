@@ -65,11 +65,17 @@
             class="com.a9ski.maven.webapp.wizards.NewProjectWizard"
             finalPerspective="org.eclipse.jst.j2ee.J2EEPerspective"
             hasPages="true"
-            icon="icons/WizardIcon.ico"
+            icon="icons/WizardIcon.gif"
             id="com.a9ski.maven.webapp.newProjectWizard"
             name="New Maven Web Application"
             project="true">
+         <description>
+            Creates new Dynamic Web Application buildable with Maven
+         </description>         
       </wizard>
+      <primaryWizard
+            id="com.a9ski.maven.webapp.newProjectWizard">
+      </primaryWizard>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
@@ -84,6 +90,15 @@
       <initializer
             class="com.a9ski.maven.webapp.preferences.PreferenceInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <newWizardShortcut
+               id="com.a9ski.maven.webapp.newProjectWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
    </extension>
 
 </plugin>

@@ -19,10 +19,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		final IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 
-		store.setDefault(PreferenceConstants.DEPENDENCIES, "javax:javaee-api:jar:6.0 (provided)|junit:junit:jar:4.11 (test)");
-		store.setDefault(PreferenceConstants.P_BOOLEAN, true);
-		store.setDefault(PreferenceConstants.P_CHOICE, "choice2");
-		store.setDefault(PreferenceConstants.P_STRING, "Default value");
+		store.setDefault(PreferenceConstants.DEPENDENCIES, "javax:javaee-api:jar:6.0 (provided)|junit:junit:jar:4.11 (test)|javax.ws.rs:jsr311-api:jar:1.1.1 (provided)");		
 	}
 
 }
