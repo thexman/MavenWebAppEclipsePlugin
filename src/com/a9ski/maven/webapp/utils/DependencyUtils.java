@@ -4,17 +4,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DependencyUtils {
-		
-	
+
 	private DependencyUtils() {
-		
+
 	}
-	
+
 	public static Map<String, String> parseDependencyString(String dependency) {
 		final Map<String, String> map = new LinkedHashMap<String, String>();
-		dependency = dependency.replace(" (", ":").replace(")", "");		
-		
-		final String[] items = dependency.split(":"); 
+		dependency = dependency.replace(" (", ":").replace(")", "");
+
+		final String[] items = dependency.split(":");
 		map.put("groupId", items[0]);
 		map.put("artifactId", items[1]);
 		if (!items[2].isEmpty()) {
@@ -26,20 +25,20 @@ public class DependencyUtils {
 		}
 		return map;
 	}
-	
+
 	public static String createDependencyString(final String groupId, final String artifactId, final String type, final String version, final String scope) {
-		final String dependency = String.format("%s:%s:%s:%s", groupId, artifactId, type, version);		
+		final String dependency = String.format("%s:%s:%s:%s", groupId, artifactId, type, version);
 		if (!scope.isEmpty()) {
 			return String.format("%s (%s)", dependency, scope);
 		} else {
 			return dependency;
 		}
 	}
-	
-	public static String join(String... dependencyStrings) {
+
+	public static String join(final String... dependencyStrings) {
 		final StringBuilder sb = new StringBuilder();
 		boolean first = true;
-		for(final String item : dependencyStrings) {
+		for (final String item : dependencyStrings) {
 			if (!first) {
 				sb.append("|");
 			} else {
@@ -49,8 +48,8 @@ public class DependencyUtils {
 		}
 		return sb.toString();
 	}
-	
-	public static String[] split(String dependencies) {
+
+	public static String[] split(final String dependencies) {
 		return dependencies.split("\\|");
 	}
 }

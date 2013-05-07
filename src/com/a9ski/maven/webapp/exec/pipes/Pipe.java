@@ -10,24 +10,23 @@ public class Pipe implements Runnable {
 
 	private final InputStream is;
 	private final OutputStream os;
-	
-	private IOException exception;	
-	
-	
+
+	private IOException exception;
+
 	public Pipe(final InputStream is, final OutputStream os) {
 		this.is = is;
 		this.os = os;
 	}
-	
+
 	@Override
-	public void run() {		
+	public void run() {
 		try {
 			IOUtils.copy(is, os);
 		} catch (final IOException ex) {
-			exception = ex;			
-		}		
+			exception = ex;
+		}
 	}
-	
+
 	public IOException getException() {
 		return exception;
 	}

@@ -15,14 +15,14 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	 * 
 	 * @see org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPreferences()
 	 */
+	@Override
 	public void initializeDefaultPreferences() {
-		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		
+		final IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+
 		store.setDefault(PreferenceConstants.DEPENDENCIES, "javax:javaee-api:jar:6.0 (provided)|junit:junit:jar:4.11 (test)");
 		store.setDefault(PreferenceConstants.P_BOOLEAN, true);
 		store.setDefault(PreferenceConstants.P_CHOICE, "choice2");
-		store.setDefault(PreferenceConstants.P_STRING,
-				"Default value");
+		store.setDefault(PreferenceConstants.P_STRING, "Default value");
 	}
 
 }
